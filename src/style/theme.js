@@ -5,10 +5,16 @@ export default {
       title: `#262626`,
       body: `#595959`,
     },
+    blue: `#1890ff`,
     grays: {
       dark: `#8c8c8c`,
       med: `#e8e8e8`,
       light: `#fafafa`,
+    },
+    projects: {
+      coin: `#5cdbd3`,
+      dictionary: `#69c0ff`,
+      music: `#ff85c0`,
     },
   },
   fonts: {
@@ -24,7 +30,14 @@ export default {
     medium: 500,
     regular: 400,
   },
-  space: [0, 8, 16, 24, 32, 64, 112],
+  grids: {
+    xs: {
+      display: 'flex',
+      paddingLeft: '32px',
+      paddingRight: '32px',
+    },
+  },
+  space: [0, 8, 16, 24, 32, 40, 64, 112],
   radii: {
     default: 8,
   },
