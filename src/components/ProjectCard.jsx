@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, Card } from 'rebass'
+import PropTypes from 'prop-types'
 import { Heading, Text } from '@elements/text'
 
 const ProjectCard = ({ title, tech, github, link, color, cover, html }) => {
@@ -24,6 +25,16 @@ const ProjectCard = ({ title, tech, github, link, color, cover, html }) => {
       </article>
     </Card>
   )
+}
+
+ProjectCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+  github: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  cover: PropTypes.string.isRequired,
+  html: PropTypes.string.isRequired,
 }
 
 export default ProjectCard

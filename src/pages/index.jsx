@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex } from 'rebass'
+import { Box, Flex } from 'rebass'
 
 import { Heading, Text } from '@elements/text'
 import Link from '@elements/Link'
@@ -41,7 +41,7 @@ const IndexPage = () => {
 
 export default IndexPage
 
-const Header = styled.header`
+const Header = styled(Box).attrs({ as: 'header' })`
   text-align: center;
 `
 
