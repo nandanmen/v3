@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Box } from 'rebass'
 
 import Header from '@elements/Header'
+import Footer from '@elements/Footer'
 import Link from '@elements/Link'
 import Nav from '@elements/Nav'
 import Grid from '@elements/Grid'
@@ -29,8 +30,8 @@ const Layout = ({ children }) => (
         </Box>
       </Nav>
     </Header>
-    <Grid>{children}</Grid>
-    <footer>Narendra Syahrasyad 2019</footer>
+    <Grid pb={4}>{children}</Grid>
+    <Footer />
   </>
 )
 

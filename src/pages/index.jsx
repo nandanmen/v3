@@ -12,13 +12,13 @@ const IndexPage = () => {
   const projects = useProjectsQuery()
   return (
     <Layout>
-      <Header>
-        <Heading>I'm Narendra.</Heading>
-        <Text mt={1} fontSize={[1, 2, 3]}>
+      <Header mb={6}>
+        <Heading mb={1}>I'm Narendra.</Heading>
+        <Text mb={2} fontSize={[1, 2, 3]}>
           I’m an aspiring software developer and 4th year Business and Computer
           Science student @ UBC.
         </Text>
-        <Links justifyContent="center" color="blue" mt={2}>
+        <Links justifyContent="center" color="blue">
           <li>
             <Link
               href="https://github.com/narendrasss"
@@ -30,11 +30,11 @@ const IndexPage = () => {
           </li>
         </Links>
       </Header>
-      <Box as="section" mt={6}>
+      <section>
         {projects.map(project => (
           <ProjectCard mb={4} key={project.id} {...project} />
         ))}
-      </Box>
+      </section>
     </Layout>
   )
 }
