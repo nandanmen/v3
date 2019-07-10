@@ -33,10 +33,12 @@ export default {
   grids: {
     xs: {
       display: 'flex',
+      flexDirection: 'column',
       paddingLeft: '32px',
       paddingRight: '32px',
     },
   },
+  sizes: [0, 288, 368],
   space: [0, 8, 16, 24, 32, 40, 64, 112],
   radii: {
     default: 8,

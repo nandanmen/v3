@@ -1,5 +1,4 @@
 ---
-path: /projects/coin
 title: Coin
 tech: [React, Redux, Styled Components]
 github: https://github.com/narendrasss/coin-v2
