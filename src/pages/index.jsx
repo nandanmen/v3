@@ -30,11 +30,11 @@ const IndexPage = () => {
           </li>
         </Links>
       </Header>
-      <section>
+      <Box as="section" mt={6}>
         {projects.map(project => (
-          <ProjectCard key={project.id} {...project} />
+          <ProjectCard mb={4} key={project.id} {...project} />
         ))}
-      </section>
+      </Box>
     </Layout>
   )
 }
