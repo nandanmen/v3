@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { layout } from 'styled-system'
 import { Flex } from 'rebass'
 import {
   Github,
@@ -12,7 +13,7 @@ import Link from '@elements/Link'
 import { Text } from '@elements/text'
 
 const Footer = props => (
-  <Wrapper color="grays.dark" mx={4} pt={3} pb={6} {...props}>
+  <Wrapper color="grays.dark" mx={[4, 4, 'auto']} pt={3} pb={6} {...props}>
     <Flex justifyContent="center" mb={2}>
       <Icon external href="https://github.com/narendrasss" mr={2}>
         <Github size="2em" />
@@ -40,6 +41,7 @@ const Icon = styled(Link)`
 `
 
 const Wrapper = styled(Flex).attrs({ as: 'footer' })`
+  ${layout}
   border-top: 1px solid ${themeGet('colors.grays.med')};
   flex-direction: column;
   align-items: center;

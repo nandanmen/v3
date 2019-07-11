@@ -30,8 +30,10 @@ const Layout = ({ children }) => (
         </Box>
       </Nav>
     </Header>
-    <Grid pb={4}>{children}</Grid>
-    <Footer />
+    <Grid as="main" px={[4, 6, 7]} py={[5, 6]}>
+      {children}
+    </Grid>
+    <Footer width={[1, 1, 0.6]} />
   </>
 )
 

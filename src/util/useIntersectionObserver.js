@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import 'intersection-observer'
 
 const defaultOptions = {
   threshold: 0.25,

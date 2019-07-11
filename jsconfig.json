@@ -2,10 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@animations": ["src/animations"],
       "@components": ["src/components"],
-      "@util": ["src/util"],
       "@elements": ["src/elements"],
-      "@animations": ["src/animations"]
+      "@util": ["src/util"]
     }
   }
 }

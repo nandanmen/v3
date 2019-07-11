@@ -8,6 +8,7 @@ import Types from 'prop-types'
 
 import { Heading, Text } from '@elements/text'
 import Link from '@elements/Link'
+import Grid from '@elements/Grid'
 import useIntersectionObserver from '@util/useIntersectionObserver'
 import { fadeIn } from '@animations'
 
@@ -22,22 +23,24 @@ const ProjectCard = ({
   ...props
 }) => {
   const ref = useRef(null)
-  const isInView = useIntersectionObserver(ref)[0]
+  const isInView = useIntersectionObserver(ref, { threshold: 0.4 })[0]
   return (
-    <Card
-      as="section"
-      flexDirection={['column', 'row', 'row', 'column']}
-      ref={ref}
-      isInView={isInView}
-      {...props}
-    >
+    <Card as="section" ref={ref} isInView={isInView} {...props}>
       <Figure
         as="figure"
         width={['100%', 'auto']}
         height={[288, 288, 368]}
         bg={`#${color}`}
-        mb={[2, 0]}
-      />
+        mb={[2, 0, 0, 4]}
+      >
+        <Img
+          src={`./thumbnails/${cover}`}
+          alt={title}
+          id={title}
+          ml={4}
+          mt={4}
+        />
+      </Figure>
       <Content>
         <Heading fontSize={4} mb={1}>
           {title}
@@ -47,13 +50,13 @@ const ProjectCard = ({
         </Text>
         <Text dangerouslySetInnerHTML={{ __html: html }} mb={2} />
         <Flex as="footer" color="grays.dark">
-          <Link mr={1} external href={github}>
+          <Icon mr={1} external href={github}>
             <Github size="1.5em" />
-          </Link>
+          </Icon>
           {link && (
-            <Link external href={link}>
+            <Icon external href={link}>
               <LinkExternal size="1.5em" />
-            </Link>
+            </Icon>
           )}
         </Flex>
       </Content>
@@ -79,14 +82,46 @@ export default ProjectCard
 
 const Content = styled(Box).attrs({ as: 'article' })`
   grid-column: 5 / span 4;
+
+  @media screen and (min-width: ${themeGet('breakpoints.1')}px) {
+    grid-column: 7 / span 6;
+  }
 `
 
 const Figure = styled(Image)`
   border-radius: 8px;
   grid-column: 1 / span 4;
+  overflow: hidden;
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  @media screen and (min-width: ${themeGet('breakpoints.1')}px) {
+    grid-column: 1 / span 6;
+  }
 `
 
-const Card = styled(Flex)`
+const Img = styled(Image)`
+  width: 100%;
+  transition: all 0.2s ease-out;
+
+  &#Dictionary {
+    object-fit: cover;
+    margin-left: 0;
+    margin-top: 1em;
+  }
+
+  &#Music {
+    height: 400px;
+    width: auto;
+    max-width: none;
+  }
+`
+
+const Card = styled(Grid)`
   width: 100%;
 
   ${fadeIn.init}
@@ -95,10 +130,21 @@ const Card = styled(Flex)`
     css`
       ${fadeIn.animation}
     `}
+  
+  animation-delay: 0;
 
-  @media screen and (min-width: ${themeGet('breakpoints.0')}px) {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-column-gap: ${themeGet('space.3')}px;
+  @media screen and (min-width: ${themeGet('breakpoints.2')}px) {
+    display: flex;
+    flex-direction: column;
+    grid-column: auto / span 4;
+    animation-delay: ${props => props.index / 10}s;
+  }
+`
+
+const Icon = styled(Link)`
+  color: inherit;
+
+  &:hover {
+    color: ${themeGet('colors.blue')};
   }
 `
