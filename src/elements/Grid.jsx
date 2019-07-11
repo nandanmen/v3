@@ -1,13 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
 import themeGet from '@styled-system/theme-get'
 import { Box } from 'rebass'
 
-const Grid = props => <Main pt={5} {...props} />
-
-export default Grid
-
-const Main = styled(Box).attrs({ as: 'main' })`
+const Grid = styled(Box).attrs({ as: 'main' })`
   display: flex;
   flex-direction: column;
   padding-left: ${themeGet('space.4')}px;
@@ -22,3 +17,5 @@ const Main = styled(Box).attrs({ as: 'main' })`
     grid-column-gap: ${themeGet('space.3')}px;
   }
 `
+
+export default Grid

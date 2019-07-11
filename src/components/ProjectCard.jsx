@@ -34,7 +34,7 @@ const ProjectCard = ({
       <Figure
         as="figure"
         width={['100%', 'auto']}
-        height={[288, 368]}
+        height={[288, 288, 368]}
         bg={`#${color}`}
         mb={[2, 0]}
       />

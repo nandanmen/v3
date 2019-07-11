@@ -25,6 +25,11 @@ export default Link
 const StyledLink = styled(BaseLink)`
   ${typography}
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
   &.active {
     color: ${themeGet('colors.blacks.title')};
     position: relative;
