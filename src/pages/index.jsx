@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Box, Flex } from 'rebass'
+import { grid } from 'styled-system'
 
 import { Heading, Text } from '@elements/text'
 import Link from '@elements/Link'
@@ -12,7 +13,7 @@ const IndexPage = () => {
   const projects = useProjectsQuery()
   return (
     <Layout>
-      <Header mb={6}>
+      <Header mb={6} gridColumn="2 / -2">
         <Heading mb={1}>I'm Narendra.</Heading>
         <Text mb={2} fontSize={[1, 2, 3]}>
           I’m an aspiring software developer and 4th year Business and Computer
@@ -30,11 +31,11 @@ const IndexPage = () => {
           </li>
         </Links>
       </Header>
-      <section>
+      <Section gridColumn="1 / -1">
         {projects.map(project => (
           <ProjectCard mb={4} key={project.id} {...project} />
         ))}
-      </section>
+      </Section>
     </Layout>
   )
 }
@@ -42,7 +43,12 @@ const IndexPage = () => {
 export default IndexPage
 
 const Header = styled(Box).attrs({ as: 'header' })`
+  ${grid}
   text-align: center;
+`
+
+const Section = styled(Box).attrs({ as: 'section' })`
+  ${grid}
 `
 
 const Links = styled(Flex).attrs({ as: 'ul' })`
