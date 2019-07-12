@@ -13,13 +13,13 @@ const Layout = ({ children }) => (
     <Header>
       <Nav>
         <Box as="li" mr={5}>
-          <Link fontSize={[1, 1, 2]} fontWeight="medium" to="algorithms">
+          <Link fontSize={[1]} fontWeight="medium" to="algorithms">
             algorithms
           </Link>
         </Box>
         <Box as="li">
           <Link
-            fontSize={[1, 1, 2]}
+            fontSize={[1]}
             fontWeight="medium"
             color="blue"
             href="mailto:n.syahrasyad.n@gmail.com"

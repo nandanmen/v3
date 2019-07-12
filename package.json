@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@styled-system/theme-get": "^5.0.12",
+    "framer-motion": "^1.2.2",
     "gatsby": "^2.13.6",
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-styled-components": "^3.1.0",

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import themeGet from '@styled-system/theme-get'
 import { Box, Flex } from 'rebass'
+import { motion } from 'framer-motion'
 
 import { Heading, Text } from '@elements/text'
 import Link from '@elements/Link'
@@ -13,7 +14,12 @@ const IndexPage = () => {
   const projects = useProjectsQuery()
   return (
     <Layout>
-      <Header mb={[5, 6]}>
+      <Header
+        mb={[5, 6]}
+        initial={{ opacity: 0, translateY: 8 }}
+        animate={{ opacity: 1, translateY: 0 }}
+        transition={{ duration: 1 }}
+      >
         <Heading mb={1}>I'm Narendra.</Heading>
         <Text mb={[3, 3]} mx="auto" fontSize={[1, 2, 3]} width={[1, 0.8]}>
           I’m an aspiring software developer and 4th year Business and Computer
@@ -43,7 +49,8 @@ const IndexPage = () => {
 
 export default IndexPage
 
-const Header = styled(Box).attrs({ as: 'header' })`
+const Header = styled(Box).attrs({ as: motion.header })`
+  opacity: 0;
   grid-column: 2 / -2;
   text-align: center;
 
