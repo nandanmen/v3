@@ -1,5 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import Types from 'prop-types'
 import { Box } from 'rebass'
 
 import Header from '@elements/Header'
@@ -7,8 +8,11 @@ import Footer from '@elements/Footer'
 import Link from '@elements/Link'
 import Nav from '@elements/Nav'
 
-const Layout = ({ children }) => (
+const Layout = ({ title, children }) => (
   <>
+    <Helmet>
+      <title>{title}</title>
+    </Helmet>
     <Header>
       <Nav>
         <Box as="li" mr={5}>
@@ -45,7 +49,12 @@ const Layout = ({ children }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: Types.node.isRequired,
+  title: Types.string,
+}
+
+Layout.defaultProps = {
+  title: '@narendras',
 }
 
 export default Layout

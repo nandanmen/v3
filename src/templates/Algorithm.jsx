@@ -22,7 +22,7 @@ const AlgorithmTemplate = ({ data: { mdx } }) => (
       p: props => <Text mb={[2]} {...props} />,
     }}
   >
-    <Layout>
+    <Layout title={mdx.exports.metadata.title}>
       <Grid px={[4, 7, 8, 0]} py={[5, 6, 6, 0]}>
         <MDXRenderer>{mdx.body}</MDXRenderer>
       </Grid>
@@ -37,6 +37,11 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       id
       body
+      exports {
+        metadata {
+          title
+        }
+      }
     }
   }
 `
