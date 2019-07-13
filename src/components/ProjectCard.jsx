@@ -121,7 +121,7 @@ const Img = styled(Image)`
   }
 `
 
-const Card = styled(Grid)`
+const Card = styled(Grid).attrs({ px: undefined, py: undefined })`
   width: 100%;
 
   ${fadeIn.init}

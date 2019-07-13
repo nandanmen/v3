@@ -6,14 +6,23 @@ import Header from '@elements/Header'
 import Footer from '@elements/Footer'
 import Link from '@elements/Link'
 import Nav from '@elements/Nav'
-import Grid from '@elements/Grid'
 
 const Layout = ({ children }) => (
   <>
     <Header>
       <Nav>
         <Box as="li" mr={5}>
-          <Link fontSize={[1]} fontWeight="medium" to="algorithms">
+          <Link
+            fontSize={[1]}
+            fontWeight="medium"
+            to="/"
+            partiallyActive={false}
+          >
+            home
+          </Link>
+        </Box>
+        <Box as="li" mr={5}>
+          <Link fontSize={[1]} fontWeight="medium" to="algorithms/002">
             algorithms
           </Link>
         </Box>
@@ -30,9 +39,7 @@ const Layout = ({ children }) => (
         </Box>
       </Nav>
     </Header>
-    <Grid as="main" px={[4, 6, 7]} py={[5, 6]}>
-      {children}
-    </Grid>
+    {children}
     <Footer width={[1, 1, 0.6]} />
   </>
 )

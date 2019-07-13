@@ -9,40 +9,43 @@ import Link from '@elements/Link'
 import Layout from '@components/Layout'
 import ProjectCard from '@components/ProjectCard'
 import useProjectsQuery from '@util/useProjectsQuery'
+import Grid from '@elements/Grid'
 
 const IndexPage = () => {
   const projects = useProjectsQuery()
   return (
     <Layout>
-      <Header
-        mb={[5, 6]}
-        initial={{ opacity: 0, translateY: 8 }}
-        animate={{ opacity: 1, translateY: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <Heading mb={1}>I'm Narendra.</Heading>
-        <Text mb={[3, 3]} mx="auto" fontSize={[1, 2, 3]} width={[1, 0.8]}>
-          I’m an aspiring software developer and 4th year Business and Computer
-          Science student @ UBC.
-        </Text>
-        <Links justifyContent="center" color="blue">
-          <li>
-            <Link
-              href="https://github.com/narendrasss"
-              external
-              fontWeight="semi"
-              fontSize={[1, 2, 3]}
-            >
-              Github
-            </Link>
-          </li>
-        </Links>
-      </Header>
-      <Section>
-        {projects.map((project, idx) => (
-          <ProjectCard index={idx} mb={4} key={project.id} {...project} />
-        ))}
-      </Section>
+      <Grid>
+        <Header
+          mb={[5, 6]}
+          initial={{ opacity: 0, translateY: 8 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Heading mb={1}>I'm Narendra.</Heading>
+          <Text mb={[3, 3]} mx="auto" fontSize={[1, 2, 3]} width={[1, 0.8]}>
+            I’m an aspiring software developer and 4th year Business and
+            Computer Science student @ UBC.
+          </Text>
+          <Links justifyContent="center" color="blue">
+            <li>
+              <Link
+                href="https://github.com/narendrasss"
+                external
+                fontWeight="semi"
+                fontSize={[1, 2, 3]}
+              >
+                Github
+              </Link>
+            </li>
+          </Links>
+        </Header>
+        <Section>
+          {projects.map((project, idx) => (
+            <ProjectCard index={idx} mb={4} key={project.id} {...project} />
+          ))}
+        </Section>
+      </Grid>
     </Layout>
   )
 }

@@ -26,4 +26,9 @@ export default createGlobalStyle`
       font-family: ${themeGet('fonts.var')};
     }
   }
+
+  code {
+    font-size: ${themeGet('fontSizes.0')}px;
+    font-family: ${themeGet('fonts.mono')};
+  }
 `

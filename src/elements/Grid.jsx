@@ -17,4 +17,10 @@ const Grid = styled(Box)`
   }
 `
 
+Grid.defaultProps = {
+  as: 'main',
+  px: [4, 6, 7],
+  py: [5, 6],
+}
+
 export default Grid

@@ -1,10 +1,18 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `content`,
-        path: `${__dirname}/content/`,
+        name: `projects`,
+        path: `${__dirname}/content/projects`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `algorithms`,
+        path: `${__dirname}/content/algorithms`,
       },
     },
     `gatsby-plugin-styled-components`,

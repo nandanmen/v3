@@ -13,7 +13,7 @@ import Link from '@elements/Link'
 import { Text } from '@elements/text'
 
 const Footer = props => (
-  <Wrapper color="grays.dark" mx={[4, 4, 'auto']} pt={3} pb={6} {...props}>
+  <Wrapper color="grays.dark" mx={[4, 'auto']} pt={3} pb={6} {...props}>
     <Flex justifyContent="center" mb={2}>
       <Icon external href="https://github.com/narendrasss" mr={2}>
         <Github size="2em" />

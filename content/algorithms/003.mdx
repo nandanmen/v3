@@ -1,0 +1,42 @@
+import AlgorithmLayout from '../../src/components/AlgorithmLayout.jsx'
+import Summary from '../../src/components/Summary.jsx'
+
+export const metadata = {
+  number: '003',
+  title: 'Longest Non-Repeating Substring',
+  runtime: 'O(n)',
+  leetcode: {
+    runtime: '88ms (87.61%)',
+    memory: '38.4mb (83.52%)',
+  },
+}
+
+<AlgorithmLayout>
+
+<h1>{metadata.title}</h1>
+
+<Summary runtime={metadata.runtime} leetcode={metadata.leetcode} />
+
+Given a string, return the length of the longest substring without repeating characters.
+
+</AlgorithmLayout>
+
+```js
+function lengthOfLongestSubstring(s) {
+  const seen = new Set()
+  let max = 0
+  let j = 0
+  let i = 0
+
+  while (i < s.length && j < s.length) {
+    if (!seen.has(s[j])) {
+      seen.add(s[j++])
+      max = Math.max(max, j - i)
+    } else {
+      seen.delete(s[i++])
+    }
+  }
+
+  return max
+}
+```

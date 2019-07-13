@@ -7,6 +7,7 @@ const Heading = props => (
     color="blacks.title"
     fontSize={[5, 6, 7, 8]}
     fontWeight="bold"
+    lineHeight="1.2"
     {...props}
   />
 )

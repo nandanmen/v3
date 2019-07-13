@@ -7,7 +7,12 @@ import { Link as RouterLink } from 'gatsby'
 import { Link as BaseLink } from 'rebass'
 
 const Link = ({ external, ...props }) => (
-  <StyledLink as={external ? 'a' : RouterLink} {...props} />
+  <StyledLink
+    as={external ? 'a' : RouterLink}
+    activeClassName="active"
+    partiallyActive
+    {...props}
+  />
 )
 
 Link.propTypes = {
@@ -39,7 +44,7 @@ const StyledLink = styled(BaseLink)`
       left: 0;
       right: 0;
       height: 2px;
-      top: calc(100% + 1em);
+      top: calc(100% + 19px);
       background: ${themeGet('colors.blacks.title')};
     }
   }
