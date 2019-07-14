@@ -109,6 +109,7 @@ const Button = styled(Flex).attrs({ as: 'button' })`
 
 const Menu = styled(Box).attrs({ as: 'ul' })`
   ${typography}
+
   list-style: none;
   position: absolute;
   top: calc(100% + 8px);
