@@ -9,7 +9,6 @@ import Types from 'prop-types'
 import { Heading, Text } from '@elements/text'
 import Link from '@elements/Link'
 import Grid from '@elements/Grid'
-import useIntersectionObserver from '@util/useIntersectionObserver'
 import { fadeIn } from '@animations'
 
 const ProjectCard = ({
@@ -23,7 +22,7 @@ const ProjectCard = ({
   ...props
 }) => {
   const ref = useRef(null)
-  const isInView = useIntersectionObserver(ref, { threshold: 0.4 })[0]
+  const isInView = true /* useIntersectionObserver(ref, { threshold: 0.4 })[0] */
   return (
     <Card as="section" ref={ref} isInView={isInView} {...props}>
       <Figure
@@ -48,7 +47,7 @@ const ProjectCard = ({
         <Text color="grays.dark" mb={2}>
           {tech.sort().join(' / ')}
         </Text>
-        <Text dangerouslySetInnerHTML={{ __html: html }} mb={2} />
+        <Text as="div" dangerouslySetInnerHTML={{ __html: html }} mb={2} />
         <Flex as="footer" color="grays.dark">
           <Icon mr={1} external href={github}>
             <Github size="1.5em" />

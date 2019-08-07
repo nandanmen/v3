@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
-import 'intersection-observer'
 
 const defaultOptions = {
   threshold: 0.25,
 }
 
 export default function useIntersectionObserver(ref, options = defaultOptions) {
+  if (typeof IntersectionObserver === 'undefined') {
+    return [true, null]
+  }
+
   const [state, setState] = useState({
     isInView: false,
     wasTriggered: false,

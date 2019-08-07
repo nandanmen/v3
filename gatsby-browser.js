@@ -1,13 +1,8 @@
-const React = require('react')
-const { ThemeProvider } = require('styled-components')
-const GlobalStyle = require('./src/style/GlobalStyle').default
-const theme = require('./src/style/theme').default
+require('./src/style/main.css')
 
-exports.wrapPageElement = ({ element }) => (
-  <ThemeProvider theme={theme}>
-    <>
-      <GlobalStyle />
-      {element}
-    </>
-  </ThemeProvider>
-)
+exports.onClientEntry = async () => {
+  if (typeof window.IntersectionObserver === `undefined`) {
+    import(`intersection-observer`)
+    console.log(`👍 IntersectionObserver is polyfilled`)
+  }
+}
