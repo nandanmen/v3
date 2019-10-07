@@ -24,8 +24,8 @@ const IndexPage = () => {
         >
           <Heading mb={1}>I'm Narendra.</Heading>
           <Text mb={[3, 3]} mx="auto" fontSize={[1, 2, 3]} width={[1, 0.8]}>
-            I’m an aspiring software developer and 4th year Business and
-            Computer Science student @ UBC.
+            Software developer at UBC Psychology and UBC Launch Pad. 4th year
+            Business and Computer Science.
           </Text>
           <Links justifyContent="center" color="blue">
             <li>
