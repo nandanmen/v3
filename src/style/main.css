@@ -33,3 +33,11 @@ code {
   font-family: source-code-pro, Menlo, Consolas, 'Courier New', Courier,
     monospace;
 }
+
+a {
+  color: inherit;
+}
+
+a:hover {
+  color: #1890ff;
+}

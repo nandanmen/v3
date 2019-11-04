@@ -5,7 +5,7 @@ const Heading = props => (
   <BaseHeading
     as="h1"
     color="blacks.title"
-    fontSize={[5, 6, 7, 8]}
+    fontSize={[3, 4, 5, 6]}
     fontWeight="bold"
     lineHeight="1.2"
     {...props}
