@@ -12,8 +12,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `algorithms`,
-        path: `${__dirname}/content/algorithms`,
+        name: `work`,
+        path: `${__dirname}/content/work`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `extracurriculars`,
+        path: `${__dirname}/content/extracurriculars`,
       },
     },
     `gatsby-plugin-styled-components`,

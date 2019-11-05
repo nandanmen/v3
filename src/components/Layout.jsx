@@ -28,11 +28,6 @@ const Layout = ({ title, children }) => (
               home
             </Link>
           </Box>
-          <Box as="li" mr={5}>
-            <Link fontSize={[1]} fontWeight="medium" to="algorithms/002">
-              algorithms
-            </Link>
-          </Box>
           <Box as="li">
             <Link
               fontSize={[1]}

@@ -16,6 +16,7 @@
     "@mdx-js/react": "^1.0.27",
     "@styled-system/theme-get": "^5.0.12",
     "babel-plugin-styled-components": "^1.10.6",
+    "date-fns": "^2.6.0",
     "downshift": "^3.2.10",
     "framer-motion": "^1.2.2",
     "gatsby": "^2.13.21",
