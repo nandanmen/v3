@@ -10,10 +10,14 @@ import Layout from '@components/Layout'
 import ProjectCard from '@components/ProjectCard'
 import Timeline from '@components/Timeline'
 import useProjectsQuery from '@util/useProjectsQuery'
+import useWorkExperience from '@util/useWorkExperience'
+import useExtracurriculars from '@util/useExtracurriculars'
 import Grid from '@elements/Grid'
 
 const IndexPage = () => {
   const projects = useProjectsQuery()
+  const works = useWorkExperience()
+  const extras = useExtracurriculars()
   return (
     <Layout>
       <Grid>
@@ -50,10 +54,11 @@ const IndexPage = () => {
             </li>
           </Links>
         </Header>
-        <Section mb={[5, 6]}>
-          <Timeline title="Work" />
-          <Timeline title="Extracurricular" />
+        <Section mb={[4, 5]}>
+          <Timeline title="Work" content={works} />
+          <Timeline title="Extracurricular" content={extras} />
         </Section>
+        <ProjectsTitle fontSize={[2, 3, 4]} mb={4}>Personal Projects</ProjectsTitle>
         <Section>
           {projects.map((project, idx) => (
             <ProjectCard index={idx} mb={4} key={project.id} {...project} />
@@ -84,6 +89,10 @@ const Section = styled(Box).attrs({ as: 'section' })`
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: ${themeGet('space.4')}px;
   }
+`
+
+const ProjectsTitle = styled(Heading)`
+  grid-column: 1 / -1;
 `
 
 const Links = styled(Flex).attrs({ as: 'ul' })`

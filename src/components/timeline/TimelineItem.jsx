@@ -7,10 +7,10 @@ import themeGet from '@styled-system/theme-get'
 import { Heading, Text } from '@elements/text'
 
 const getDateText = (startDate, endDate) => {
-  return `${format(startDate, 'MMMM yyyy')} — ${endDate ? format(endDate, 'MMMM yyyy') : 'Present'}`;
+  return `${format(new Date(startDate), 'MMMM yyyy')} — ${endDate ? format(new Date(endDate), 'MMMM yyyy') : 'Present'}`;
 }
 
-const TimelineItem = ({ title, startDate, endDate, children }) => {
+const TimelineItem = ({ title, startDate, endDate, html }) => {
   return (
     <div>
       <Header mb={3}>
@@ -19,20 +19,19 @@ const TimelineItem = ({ title, startDate, endDate, children }) => {
           {title}
         </Title>
       </Header>
-      <Article>{children}</Article>
+      <Article dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   )
 }
 
 TimelineItem.propTypes = {
   title: Types.string.isRequired,
-  startDate: Types.instanceOf(Date).isRequired,
-  children: Types.node,
-  endDate: Types.instanceOf(Date)
+  startDate: Types.string.isRequired,
+  endDate: Types.string,
+  html: Types.string.isRequired,
 }
 
 TimelineItem.defaultProps = {
-  children: null,
   endDate: null
 }
 
@@ -48,8 +47,13 @@ const Header = styled(Box).attrs({ as: 'header' })`
 
   &:before {
     border-radius: 50%;
-    content: '';
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+    color: ${themeGet('colors.grays.dark')};
+    font-weight: 600;
     width: 40px;
     height: 40px;
     left: -56px;
@@ -59,7 +63,4 @@ const Header = styled(Box).attrs({ as: 'header' })`
 `
 
 const Article = styled(Box).attrs({ as: 'article' })`
-  ul {
-    list-style: square;
-  }
 `

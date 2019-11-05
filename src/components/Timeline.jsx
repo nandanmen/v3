@@ -7,23 +7,24 @@ import { Heading } from '@elements/text'
 
 import TimelineItem from './timeline/TimelineItem'
 
-const Timeline = ({ title, ...props }) => {
+const Timeline = ({ title, content, ...props }) => {
   return (
     <Section {...props}>
       <Title fontSize={[2, 3, 4]} mb={4}>{title}</Title>
       <Content>
-        <TimelineItem title="Software Developer @ UBC Psychology" startDate={new Date('2019-10-01')}>
-          <ul>
-            <li>Improved overall code quality by migrating imperative jQuery-based code to declarative Vue code.</li>
-          </ul>
-        </TimelineItem>
+        {
+          content.map(({ id, ...item }) => (
+            <TimelineItem key={id} {...item} />
+          ))
+        }
       </Content>
     </Section>
   )
 }
 
 Timeline.propTypes = {
-  title: Types.string.isRequired
+  title: Types.string.isRequired,
+  content: Types.arrayOf(Types.any).isRequired,
 }
 
 export default Timeline
@@ -33,7 +34,9 @@ const Section = styled(Box).attrs({ as: 'section' })`
 
   @media screen and (min-width: ${themeGet('breakpoints.2')}px) {
     display: grid;
+    align-items: flex-start;
     grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: min-content;
     grid-column-gap: ${themeGet('space.4')}px;
   }
 `
@@ -47,7 +50,7 @@ const Content = styled(Box)`
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  padding: 0 56px 32px 56px;
+  padding: 0 0 32px 56px;
 
   &:before {
     content: "";
@@ -57,5 +60,9 @@ const Content = styled(Box)`
     left: 20px;
     top: 0;
     background: ${themeGet('colors.grays.med')};
+  }
+
+  @media screen and (min-width: ${themeGet('breakpoints.2')}px) {
+    padding-right: 56px;
   }
 `
