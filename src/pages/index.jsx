@@ -8,6 +8,7 @@ import { Heading, Text } from '@elements/text'
 import Link from '@elements/Link'
 import Layout from '@components/Layout'
 import ProjectCard from '@components/ProjectCard'
+import Timeline from '@components/Timeline'
 import useProjectsQuery from '@util/useProjectsQuery'
 import Grid from '@elements/Grid'
 
@@ -49,13 +50,9 @@ const IndexPage = () => {
             </li>
           </Links>
         </Header>
-        <Section>
-          <TimelineSection>
-            <Heading fontSize={[2, 3, 4]}>Work</Heading>
-          </TimelineSection>
-          <TimelineSection>
-            <Heading fontSize={[2, 3, 4]}>Extracurricular</Heading>
-          </TimelineSection>
+        <Section mb={[5, 6]}>
+          <Timeline title="Work" />
+          <Timeline title="Extracurricular" />
         </Section>
         <Section>
           {projects.map((project, idx) => (
@@ -87,10 +84,6 @@ const Section = styled(Box).attrs({ as: 'section' })`
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: ${themeGet('space.4')}px;
   }
-`
-
-const TimelineSection = styled(Section)`
-  grid-column: span 6;
 `
 
 const Links = styled(Flex).attrs({ as: 'ul' })`
