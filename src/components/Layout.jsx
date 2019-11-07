@@ -10,7 +10,7 @@ import Link from '@elements/Link'
 import Nav from '@elements/Nav'
 import theme from '@style/theme'
 
-const Layout = ({ title, children }) => (
+const Layout = ({ title, children, variant }) => (
   <ThemeProvider theme={theme}>
     <>
       <Helmet>
@@ -28,6 +28,16 @@ const Layout = ({ title, children }) => (
               home
             </Link>
           </Box>
+          <Box as="li" mr={5}>
+            <Link
+              fontSize={[1]}
+              fontWeight="medium"
+              to="/algorithms"
+              partiallyActive={false}
+            >
+              algorithms
+            </Link>
+          </Box>
           <Box as="li">
             <Link
               fontSize={[1]}
@@ -42,7 +52,7 @@ const Layout = ({ title, children }) => (
         </Nav>
       </Header>
       {children}
-      <Footer width={[1, 1, 0.6]} />
+      {variant === 'footer' && <Footer width={[1, 1, 0.6]} />}
     </>
   </ThemeProvider>
 )
@@ -50,10 +60,12 @@ const Layout = ({ title, children }) => (
 Layout.propTypes = {
   children: Types.node.isRequired,
   title: Types.string,
+  variant: Types.string,
 }
 
 Layout.defaultProps = {
   title: '@narendras',
+  variant: 'footer',
 }
 
 export default Layout

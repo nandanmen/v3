@@ -28,18 +28,16 @@ const IndexPage = () => {
           transition={{ duration: 1 }}
         >
           <Heading>
-            Hi, I'm Nanda!
-            {' '}
+            Hi, I'm Nanda!{' '}
             <span role="img" aria-label="wave">
               👋
             </span>
           </Heading>
           <Text my={4} mx="auto" fontSize={[1, 2]} width={[1, 0.8]}>
-            I'm a 3rd year Business and Computer Science student and a software developer working on the
-            {' '}
-            <a href="https://tapestry-tool.com/">Tapestry Project</a>
-            {' '}
-            for the UBC Department of Psychology.
+            I'm a 3rd year Business and Computer Science student and a software
+            developer working on the{' '}
+            <a href="https://tapestry-tool.com/">Tapestry Project</a> for the
+            UBC Department of Psychology.
           </Text>
           <Links justifyContent="center" color="blue">
             <li>
@@ -58,7 +56,9 @@ const IndexPage = () => {
           <Timeline title="Work" content={works} />
           <Timeline title="Extracurricular" content={extras} />
         </Section>
-        <ProjectsTitle fontSize={[2, 3, 4]} mb={4}>Personal Projects</ProjectsTitle>
+        <ProjectsTitle fontSize={[2, 3, 4]} mb={4}>
+          Personal Projects
+        </ProjectsTitle>
         <Section>
           {projects.map((project, idx) => (
             <ProjectCard index={idx} mb={4} key={project.id} {...project} />

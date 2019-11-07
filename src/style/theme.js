@@ -1,3 +1,7 @@
+const sizes = [0, 288, 368]
+
+sizes.sidebar = 84
+
 export default {
   breakpoints: [768, 1024, 1366],
   colors: {
@@ -30,7 +34,7 @@ export default {
     medium: 500,
     regular: 400,
   },
-  sizes: [0, 288, 368],
+  sizes,
   space: [0, 8, 12, 20, 32, 48, 80, 128, 208],
   radii: {
     default: 8,
