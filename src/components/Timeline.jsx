@@ -10,13 +10,13 @@ import TimelineItem from './timeline/TimelineItem'
 const Timeline = ({ title, content, ...props }) => {
   return (
     <Section {...props}>
-      <Title fontSize={[2, 3, 4]} mb={4}>{title}</Title>
+      <Title fontSize={[2, 3, 4]} mb={4}>
+        {title}
+      </Title>
       <Content>
-        {
-          content.map(({ id, ...item }) => (
-            <TimelineItem key={id} {...item} />
-          ))
-        }
+        {content.map(({ id, ...item }) => (
+          <TimelineItem key={id} {...item} />
+        ))}
       </Content>
     </Section>
   )
@@ -53,7 +53,7 @@ const Content = styled(Box)`
   padding: 0 0 32px 56px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     height: 100%;
     width: 1px;
